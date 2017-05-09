@@ -18,5 +18,19 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "SFDownloadHelper/Classes/**/*"
+  "subspecs": [
+    {
+      "name": "SFFileHelper",
+      "source_files": "SFDownloadHelper/Classes/FileHelper/*"
+    },
+    {
+      "name": "DownloadHelper",
+      "source_files": "SFDownloadHelper/Classes/downloadHelper/*",
+      "dependencies": {
+        "SFDownloadHelper/SFFileHelper": [
+
+        ]
+      }
+    }
+  ]
 }

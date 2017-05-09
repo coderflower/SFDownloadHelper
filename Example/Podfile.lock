@@ -1,5 +1,10 @@
 PODS:
-  - SFDownloadHelper (0.1.0)
+  - SFDownloadHelper (0.1.0):
+    - SFDownloadHelper/DownloadHelper (= 0.1.0)
+    - SFDownloadHelper/SFFileHelper (= 0.1.0)
+  - SFDownloadHelper/DownloadHelper (0.1.0):
+    - SFDownloadHelper/SFFileHelper
+  - SFDownloadHelper/SFFileHelper (0.1.0)
 
 DEPENDENCIES:
   - SFDownloadHelper (from `../`)
@@ -9,7 +14,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SFDownloadHelper: cfaa519496ceca9b576e890c01fb4e54604a4bf0
+  SFDownloadHelper: 1207d74c0a194ac6b25a305f7863daaff2258e66
 
 PODFILE CHECKSUM: 16113a9085d0ebaf3f9d753734e01c398de897f9
 

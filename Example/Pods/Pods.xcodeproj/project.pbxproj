@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		049A27FC2C0327DAC3E392F5998813D3 /* SFFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0111F13905A2239FD25A654768C40 /* SFFileHelper.m */; };
+		049A27FC2C0327DAC3E392F5998813D3 /* SFFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F8A341DA586A050E6B3E774252739C /* SFFileHelper.m */; };
 		3689575D0FB37117E70F1B10F3834D40 /* Pods-SFDownloadHelper_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 51652596D6B274B8D457B1BCA13F5B91 /* Pods-SFDownloadHelper_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38247AB22C42C77C6F6E658946AD0149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		66BEF9CC64FD5A1D8604F862DF8E9775 /* SFFileHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BE351D8E6C9EFC431665827432E0C81 /* SFFileHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B0E3CFF417C647BCB0D8A5E8BEC2191 /* SFDownloadHelper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A67084E7BCB9DB8523157838065F49C5 /* SFDownloadHelper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66BEF9CC64FD5A1D8604F862DF8E9775 /* SFFileHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C554782B9D040493F01342E4D930B1C /* SFFileHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B0E3CFF417C647BCB0D8A5E8BEC2191 /* SFDownloadHelper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5D1EB34A771193C8CC8E0DC982473A /* SFDownloadHelper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		737BA09C89A3DD0BA07F040E127FDCC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		7568D318856FF163314D5BAF9D426AEA /* Pods-SFDownloadHelper_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BD05A5DA66BF97816FE66CCA6B505C /* Pods-SFDownloadHelper_Tests-dummy.m */; };
 		7B6FEAA0AB0A78B2A22A192033E55882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		8DFBD808C4EEB2214393F7E3DAE5FC2B /* Pods-SFDownloadHelper_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF195CD6A187120DF72591D18E1F2ED6 /* Pods-SFDownloadHelper_Example-dummy.m */; };
-		B63F2F1160D815C3C0B9FFA6692CEF81 /* SFDownloadHelper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 933CB825AC3D4AE6D22C0C88927230C7 /* SFDownloadHelper-dummy.m */; };
-		F592B1098BA7903C21867EC2F78498CA /* SFDownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F57596CBA254A3BB48BADD39B49E8A18 /* SFDownloadHelper.m */; };
+		B63F2F1160D815C3C0B9FFA6692CEF81 /* SFDownloadHelper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D393F9974BF8B78A6C3A33376394B8B6 /* SFDownloadHelper-dummy.m */; };
+		F592B1098BA7903C21867EC2F78498CA /* SFDownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C2015F664FF8AF454F6C3A5BE2B1A971 /* SFDownloadHelper.m */; };
 		F8E44778AEF0163ACFC8721385D2934A /* Pods-SFDownloadHelper_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD662FDAFBCC0E50FFDC6C75D2C97415 /* Pods-SFDownloadHelper_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEE72DD472A75E390DA885D99EB562C8 /* SFDownloadHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5263DCA1F31A77E4102123BA8A87DFD8 /* SFDownloadHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FEE72DD472A75E390DA885D99EB562C8 /* SFDownloadHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F5AD83F8D129B3B10ADE3D15628B06 /* SFDownloadHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,38 +36,38 @@
 		02CF85E18CE74E08F9C0C1BAA7B00A8F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03BD05A5DA66BF97816FE66CCA6B505C /* Pods-SFDownloadHelper_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SFDownloadHelper_Tests-dummy.m"; sourceTree = "<group>"; };
 		040B08863B7853A71C1CC91581E05849 /* Pods-SFDownloadHelper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SFDownloadHelper_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		17F5AD83F8D129B3B10ADE3D15628B06 /* SFDownloadHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SFDownloadHelper.h; sourceTree = "<group>"; };
+		1C39C88DFEB14F4AF346E78EF628A808 /* SFDownloadHelper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SFDownloadHelper.xcconfig; sourceTree = "<group>"; };
 		2E61E50551EF89AB82631AD5B7415300 /* Pods_SFDownloadHelper_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SFDownloadHelper_Tests.framework; path = "Pods-SFDownloadHelper_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F344F2887FD3338A278DBC7D104839 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		374A651A94EE8C11EA200C8909A4DEC4 /* Pods-SFDownloadHelper_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SFDownloadHelper_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		3BC0111F13905A2239FD25A654768C40 /* SFFileHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SFFileHelper.m; sourceTree = "<group>"; };
+		3C554782B9D040493F01342E4D930B1C /* SFFileHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SFFileHelper.h; sourceTree = "<group>"; };
+		430D47F4F8F400F13B0D6022566A5D90 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		434042A4EE4367644DF1C3CFDA975C70 /* Pods-SFDownloadHelper_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SFDownloadHelper_Example-frameworks.sh"; sourceTree = "<group>"; };
+		49F8A341DA586A050E6B3E774252739C /* SFFileHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SFFileHelper.m; sourceTree = "<group>"; };
 		51652596D6B274B8D457B1BCA13F5B91 /* Pods-SFDownloadHelper_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SFDownloadHelper_Tests-umbrella.h"; sourceTree = "<group>"; };
-		5263DCA1F31A77E4102123BA8A87DFD8 /* SFDownloadHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SFDownloadHelper.h; sourceTree = "<group>"; };
+		62A2CE2435836994F5CE783C8B64D3DE /* SFDownloadHelper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SFDownloadHelper-prefix.pch"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		74D30A499A5B9036625DEFACA33FE233 /* SFDownloadHelper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SFDownloadHelper-prefix.pch"; sourceTree = "<group>"; };
 		78D0BEAE97A03A0262F6D4970A25F873 /* Pods-SFDownloadHelper_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SFDownloadHelper_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7C4C4BE07C040E68BB0EFAB04873A560 /* Pods-SFDownloadHelper_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SFDownloadHelper_Example-resources.sh"; sourceTree = "<group>"; };
-		83D86B4DCED613F557076AE3487CF693 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BE351D8E6C9EFC431665827432E0C81 /* SFFileHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SFFileHelper.h; sourceTree = "<group>"; };
 		92494ED3CE44217672DB0E5C2B46EE7F /* Pods-SFDownloadHelper_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SFDownloadHelper_Tests-resources.sh"; sourceTree = "<group>"; };
-		933CB825AC3D4AE6D22C0C88927230C7 /* SFDownloadHelper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SFDownloadHelper-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96D2AC473C2F50CDF5E3CF44EEC0C6D9 /* Pods-SFDownloadHelper_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SFDownloadHelper_Tests.modulemap"; sourceTree = "<group>"; };
 		A0146355997A5A573490E74485FC1F7C /* Pods-SFDownloadHelper_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SFDownloadHelper_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A130A038D19102A15CC516EECAF00C0D /* SFDownloadHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SFDownloadHelper.modulemap; sourceTree = "<group>"; };
-		A67084E7BCB9DB8523157838065F49C5 /* SFDownloadHelper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SFDownloadHelper-umbrella.h"; sourceTree = "<group>"; };
 		AD562D6AAFAADC696B7A4C8E1340E16A /* Pods-SFDownloadHelper_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SFDownloadHelper_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BB9AE9116B809B73F6FB3055158450D2 /* Pods-SFDownloadHelper_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SFDownloadHelper_Example.modulemap"; sourceTree = "<group>"; };
 		BF195CD6A187120DF72591D18E1F2ED6 /* Pods-SFDownloadHelper_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SFDownloadHelper_Example-dummy.m"; sourceTree = "<group>"; };
+		BF5D1EB34A771193C8CC8E0DC982473A /* SFDownloadHelper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SFDownloadHelper-umbrella.h"; sourceTree = "<group>"; };
+		C2015F664FF8AF454F6C3A5BE2B1A971 /* SFDownloadHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SFDownloadHelper.m; sourceTree = "<group>"; };
 		C2D3988BAE926460CF4C83E342F3806B /* SFDownloadHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SFDownloadHelper.framework; path = SFDownloadHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36E33C1D5C81CAFD9EA30DB3BA14780 /* Pods-SFDownloadHelper_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SFDownloadHelper_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CFD38122DF739E9CD3B5FD36E777EF72 /* SFDownloadHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SFDownloadHelper.modulemap; sourceTree = "<group>"; };
+		D393F9974BF8B78A6C3A33376394B8B6 /* SFDownloadHelper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SFDownloadHelper-dummy.m"; sourceTree = "<group>"; };
 		D8980EE35A2AC49606615805218EA30F /* Pods-SFDownloadHelper_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SFDownloadHelper_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		DD32DD29A6BAC00ECFC917DD64C0F772 /* Pods_SFDownloadHelper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SFDownloadHelper_Example.framework; path = "Pods-SFDownloadHelper_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD662FDAFBCC0E50FFDC6C75D2C97415 /* Pods-SFDownloadHelper_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SFDownloadHelper_Example-umbrella.h"; sourceTree = "<group>"; };
 		F452046467D1B186BE6512B8D90D56DE /* Pods-SFDownloadHelper_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SFDownloadHelper_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		F57596CBA254A3BB48BADD39B49E8A18 /* SFDownloadHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SFDownloadHelper.m; sourceTree = "<group>"; };
 		F8E265A6C48D8A29E9535231171E733B /* Pods-SFDownloadHelper_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SFDownloadHelper_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FB6797A32CD0E28569EA8B4207F0973F /* SFDownloadHelper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SFDownloadHelper.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,15 +98,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4EDD2CCD5870650EA6926C45914AFA07 /* Support Files */ = {
+		049FB0048D829972E8973F651988DC50 /* SFDownloadHelper */ = {
 			isa = PBXGroup;
 			children = (
-				83D86B4DCED613F557076AE3487CF693 /* Info.plist */,
-				A130A038D19102A15CC516EECAF00C0D /* SFDownloadHelper.modulemap */,
-				FB6797A32CD0E28569EA8B4207F0973F /* SFDownloadHelper.xcconfig */,
-				933CB825AC3D4AE6D22C0C88927230C7 /* SFDownloadHelper-dummy.m */,
-				74D30A499A5B9036625DEFACA33FE233 /* SFDownloadHelper-prefix.pch */,
-				A67084E7BCB9DB8523157838065F49C5 /* SFDownloadHelper-umbrella.h */,
+				5DC58BAFEF2C7B557A7C19EA8577A2FD /* Classes */,
+			);
+			name = SFDownloadHelper;
+			path = SFDownloadHelper;
+			sourceTree = "<group>";
+		};
+		0AE7E5F016B7C8BD8144E94B571AE35B /* DownloadHelper */ = {
+			isa = PBXGroup;
+			children = (
+				17F5AD83F8D129B3B10ADE3D15628B06 /* SFDownloadHelper.h */,
+				C2015F664FF8AF454F6C3A5BE2B1A971 /* SFDownloadHelper.m */,
+			);
+			name = DownloadHelper;
+			path = DownloadHelper;
+			sourceTree = "<group>";
+		};
+		3D3C3981CA2231106516DED11F61846B /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F61F5F3E26C2A29DE036F1C5FFDA859 /* SFDownloadHelper */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		3F61F5F3E26C2A29DE036F1C5FFDA859 /* SFDownloadHelper */ = {
+			isa = PBXGroup;
+			children = (
+				CCF95A9D39880517C980D199717EA67B /* DownloadHelper */,
+				83AAC688510D319CCCE1E0901F102979 /* SFFileHelper */,
+				527DBA44BF78B2BFEEC69025D540B1AC /* Support Files */,
+			);
+			name = SFDownloadHelper;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		527DBA44BF78B2BFEEC69025D540B1AC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				430D47F4F8F400F13B0D6022566A5D90 /* Info.plist */,
+				CFD38122DF739E9CD3B5FD36E777EF72 /* SFDownloadHelper.modulemap */,
+				1C39C88DFEB14F4AF346E78EF628A808 /* SFDownloadHelper.xcconfig */,
+				D393F9974BF8B78A6C3A33376394B8B6 /* SFDownloadHelper-dummy.m */,
+				62A2CE2435836994F5CE783C8B64D3DE /* SFDownloadHelper-prefix.pch */,
+				BF5D1EB34A771193C8CC8E0DC982473A /* SFDownloadHelper-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/SFDownloadHelper";
@@ -130,46 +168,51 @@
 			path = "Target Support Files/Pods-SFDownloadHelper_Example";
 			sourceTree = "<group>";
 		};
+		5C0FD40B91CCCB2D232D209C8A1A4916 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				62771FDEEE408988D54E877B67CD19E7 /* FileHelper */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5DC58BAFEF2C7B557A7C19EA8577A2FD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0AE7E5F016B7C8BD8144E94B571AE35B /* DownloadHelper */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		62771FDEEE408988D54E877B67CD19E7 /* FileHelper */ = {
+			isa = PBXGroup;
+			children = (
+				3C554782B9D040493F01342E4D930B1C /* SFFileHelper.h */,
+				49F8A341DA586A050E6B3E774252739C /* SFFileHelper.m */,
+			);
+			name = FileHelper;
+			path = FileHelper;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				C2F569391E80D4852200B6BB2138952A /* Development Pods */,
+				3D3C3981CA2231106516DED11F61846B /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				D38E4BE1370C742256C9E0767283B953 /* Products */,
 				B08D12992C040CA27E4CFD40BB598151 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A018EBE33E9E9011ACAD0B25E840E24E /* Classes */ = {
+		83AAC688510D319CCCE1E0901F102979 /* SFFileHelper */ = {
 			isa = PBXGroup;
 			children = (
-				5263DCA1F31A77E4102123BA8A87DFD8 /* SFDownloadHelper.h */,
-				F57596CBA254A3BB48BADD39B49E8A18 /* SFDownloadHelper.m */,
-				8BE351D8E6C9EFC431665827432E0C81 /* SFFileHelper.h */,
-				3BC0111F13905A2239FD25A654768C40 /* SFFileHelper.m */,
+				C1C549551AC6D9E79BD74E2ECF343FF9 /* SFDownloadHelper */,
 			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		A3ABB53A14786A3F4004ACC7B9B824E3 /* SFDownloadHelper */ = {
-			isa = PBXGroup;
-			children = (
-				A018EBE33E9E9011ACAD0B25E840E24E /* Classes */,
-			);
-			name = SFDownloadHelper;
-			path = SFDownloadHelper;
-			sourceTree = "<group>";
-		};
-		A4E33E94B1DA7E4E32815A5B716666BB /* SFDownloadHelper */ = {
-			isa = PBXGroup;
-			children = (
-				A3ABB53A14786A3F4004ACC7B9B824E3 /* SFDownloadHelper */,
-				4EDD2CCD5870650EA6926C45914AFA07 /* Support Files */,
-			);
-			name = SFDownloadHelper;
-			path = ../..;
+			name = SFFileHelper;
 			sourceTree = "<group>";
 		};
 		B08D12992C040CA27E4CFD40BB598151 /* Targets Support Files */ = {
@@ -189,12 +232,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C2F569391E80D4852200B6BB2138952A /* Development Pods */ = {
+		C1C549551AC6D9E79BD74E2ECF343FF9 /* SFDownloadHelper */ = {
 			isa = PBXGroup;
 			children = (
-				A4E33E94B1DA7E4E32815A5B716666BB /* SFDownloadHelper */,
+				5C0FD40B91CCCB2D232D209C8A1A4916 /* Classes */,
 			);
-			name = "Development Pods";
+			name = SFDownloadHelper;
+			path = SFDownloadHelper;
+			sourceTree = "<group>";
+		};
+		CCF95A9D39880517C980D199717EA67B /* DownloadHelper */ = {
+			isa = PBXGroup;
+			children = (
+				049FB0048D829972E8973F651988DC50 /* SFDownloadHelper */,
+			);
+			name = DownloadHelper;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -586,7 +638,7 @@
 		};
 		7A733E6230DF6A8E72646FEF96DD7896 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB6797A32CD0E28569EA8B4207F0973F /* SFDownloadHelper.xcconfig */;
+			baseConfigurationReference = 1C39C88DFEB14F4AF346E78EF628A808 /* SFDownloadHelper.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -654,7 +706,7 @@
 		};
 		A75FFE9A9A40E741CEB8B91DA93A4363 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB6797A32CD0E28569EA8B4207F0973F /* SFDownloadHelper.xcconfig */;
+			baseConfigurationReference = 1C39C88DFEB14F4AF346E78EF628A808 /* SFDownloadHelper.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
