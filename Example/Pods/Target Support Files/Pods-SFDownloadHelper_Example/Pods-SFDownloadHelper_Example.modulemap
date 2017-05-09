@@ -1,6 +1,0 @@
-framework module Pods_SFDownloadHelper_Example {
-  umbrella header "Pods-SFDownloadHelper_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

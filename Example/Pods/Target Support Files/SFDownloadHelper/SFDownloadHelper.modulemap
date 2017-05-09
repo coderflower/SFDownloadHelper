@@ -1,6 +1,0 @@
-framework module SFDownloadHelper {
-  umbrella header "SFDownloadHelper-umbrella.h"
-
-  export *
-  module * { export * }
-}

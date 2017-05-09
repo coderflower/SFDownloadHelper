@@ -35,6 +35,13 @@ Pod::Spec.new do |s|
   # s.resource_bundles = {
   #   'SFDownloadHelper' => ['SFDownloadHelper/Assets/*.png']
   # }
+  s.subspec 'SFFileHelper' do |fileHelper|
+    fileHelper.source_files = 'SFDownloadHelper/Classes/FileHelper/*'
+  end
+  s.subspec 'DownloadHelper' do |downloadHelper|
+    downloadHelper.source_files = 'SFDownloadHelper/Classes/downloadHelper/*'
+    downloadHelper.dependency 'SFDownloadHelper/SFFileHelper'
+  end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
