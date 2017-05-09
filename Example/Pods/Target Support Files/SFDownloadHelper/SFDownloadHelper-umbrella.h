@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "SFDownloadHelper.h"
+#import "SFFileHelper.h"
 
 FOUNDATION_EXPORT double SFDownloadHelperVersionNumber;
 FOUNDATION_EXPORT const unsigned char SFDownloadHelperVersionString[];
