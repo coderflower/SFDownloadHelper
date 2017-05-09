@@ -1,0 +1,16 @@
+PODS:
+  - SFDownloadHelper (0.1.0)
+
+DEPENDENCIES:
+  - SFDownloadHelper (from `../`)
+
+EXTERNAL SOURCES:
+  SFDownloadHelper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SFDownloadHelper: 79d5ee3e88e19dcbe6d3f782f7c851d07f818552
+
+PODFILE CHECKSUM: 16113a9085d0ebaf3f9d753734e01c398de897f9
+
+COCOAPODS: 1.2.1
