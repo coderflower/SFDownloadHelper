@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SFDownloadHelper_Example' do
+  pod 'SFDownloadHelper', :path => '../'
+
+  target 'SFDownloadHelper_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
