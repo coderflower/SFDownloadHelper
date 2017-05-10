@@ -8,6 +8,7 @@
 
 #import "SFViewController.h"
 #import "SFFileHelper.h"
+#import "SFDownloadHelper.h"
 @interface SFViewController ()
 
 @end
@@ -22,6 +23,14 @@
     NSString * path = @"/Users/Caiflower/Desktop/（moquu.com分享）极客学院小程序视频教程/1.1微信小程序从基础到实战课程概要.mp4";
     
     NSLog(@"%lld",[SFFileHelper sf_fileSizeInPath:path]);
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    NSURL * url = [NSURL URLWithString:@"https://fir.im/mfba"];
+    
+    
+    [[SFDownloadHelper new] downloadWithURL:url];
 }
 
 - (void)didReceiveMemoryWarning
