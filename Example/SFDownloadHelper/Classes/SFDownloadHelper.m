@@ -21,6 +21,7 @@
 }
 @property (nonatomic, strong) NSURLSession * session;
 @property (nonatomic, strong) NSOutputStream * outputStream;
+@property (nonatomic, weak) NSURLSessionDataTask * task;
 @end
 @implementation SFDownloadHelper
 - (void)downloadWithURL:(NSURL *)url
@@ -49,6 +50,21 @@
     }
     
 }
+- (void)pasueCurrentTask
+{
+    [self.task suspend];
+}
+- (void)cancleCurrentTask
+{
+    [self.session invalidateAndCancel];
+    self.session = nil;
+}
+- (void)cancleAndClearCurrentTask
+{
+    [self cancleCurrentTask];
+    // 删除缓存
+    [SFFileHelper sf_removeItemAtPath:_tmpPath];
+}
 
 #pragma mark -
 #pragma mark - ===== 私有方法 =====
@@ -59,9 +75,9 @@
     NSString * offsetStr = [NSString stringWithFormat:@"byties=%lld",offset];
     [request setValue:offsetStr forHTTPHeaderField:@"Range"];
     
-    NSURLSessionDataTask * task = [self.session dataTaskWithRequest:request];
+    self.task = [self.session dataTaskWithRequest:request];
     // 开始任务
-    [task resume];
+    [self.task resume];
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
