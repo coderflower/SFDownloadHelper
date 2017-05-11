@@ -26,6 +26,11 @@
 @implementation SFDownloadHelper
 - (void)downloadWithURL:(NSURL *)url
 {
+    if ([url isEqual:self.task.currentRequest.URL])
+    {
+        [self resumeCurrentTask];
+        return;
+    }
     // 获取文件名
     NSString * fileName = url.lastPathComponent;
     _cachesPath = [SFCachePath stringByAppendingPathComponent:fileName];
@@ -33,10 +38,12 @@
     if ([SFFileHelper sf_flieExistsAtPath:_cachesPath])
     {
         NSLog(@"文件下载完成");
+        self.state = SFDownloadHelperStateSuccess;
         return;
     }
     // 判断是否曾经下载过
     _tmpPath = [SFTempPath stringByAppendingPathComponent:fileName];
+    
     if ([SFFileHelper sf_flieExistsAtPath:_tmpPath])
     {
         // 获取已下载的文件大小
@@ -48,14 +55,26 @@
         // 从 0 开始下载
         [self downloadWithURL:url offset:0];
     }
-    
 }
 - (void)pasueCurrentTask
 {
-    [self.task suspend];
+    if (self.state == SFDownloadHelperStateDownloading )
+    {
+        [self.task suspend];
+        self.state = SFDownloadHelperStatePasue;
+    }
+}
+- (void)resumeCurrentTask
+{
+    if (self.task && (self.state == SFDownloadHelperStatePasue || self.state == SFDownloadHelperStateCancle))
+    {
+        [self.task resume];
+        self.state = SFDownloadHelperStateDownloading;
+    }
 }
 - (void)cancleCurrentTask
 {
+    self.state = SFDownloadHelperStateCancle;
     [self.session invalidateAndCancel];
     self.session = nil;
 }
@@ -70,71 +89,104 @@
 #pragma mark - ===== 私有方法 =====
 - (void)downloadWithURL:(NSURL *)url offset:(long long)offset
 {
+   // 创建请求
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
     // 设置起始下载字节
-    NSString * offsetStr = [NSString stringWithFormat:@"byties=%lld",offset];
+    NSString * offsetStr = [NSString stringWithFormat:@"bytes=%lld-",offset];
     [request setValue:offsetStr forHTTPHeaderField:@"Range"];
     
     self.task = [self.session dataTaskWithRequest:request];
     // 开始任务
-    [self.task resume];
+    [self resumeCurrentTask];
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
 {
-    NSHTTPURLResponse * rsp = (NSHTTPURLResponse *)response;
+    // 获取本次下载期望大小
+    _totalSize = response.expectedContentLength;
     
-    NSDictionary * fileInfo = rsp.allHeaderFields;
-    
-    _totalSize = [fileInfo[@"Content-Length"] longLongValue];
-    NSString * contentRange = fileInfo[@"content-range"];
-    // 获取真实大小
-    NSString * totalSize = [[contentRange componentsSeparatedByString:@"/"] lastObject];
-    if ( totalSize.length != 0)
+    if ([response isKindOfClass:[NSHTTPURLResponse class]])
     {
-        _totalSize = [totalSize longLongValue];
+        NSHTTPURLResponse * rep = (NSHTTPURLResponse * )response;
+        NSString * rangeStr = rep.allHeaderFields[@"content-range"];
+        NSString * totalSize = [[rangeStr componentsSeparatedByString:@"/"] lastObject];
+        if (totalSize.length != 0)
+        {
+            // 获取真实文件大小
+            _totalSize = [totalSize longLongValue];
+        }
+        if (_tmpSize == _totalSize)
+        {
+            // 移动临时文件到 cache 目录
+            [SFFileHelper sf_moveItemFromPath:_tmpPath toPath:_cachesPath];
+            // 取消本次任务
+            completionHandler(NSURLSessionResponseCancel);
+            // 修改为下载完成状态
+            self.state = SFDownloadHelperStateSuccess;
+            return;
+        }
+        if (_tmpSize > _totalSize)
+        {
+            // 取消本次任务
+            completionHandler(NSURLSessionResponseCancel);
+            // 移除原有临时文件
+            [SFFileHelper sf_removeItemAtPath:_tmpPath];
+            // 重新开始下载
+            [self downloadWithURL:response.URL];
+            
+            return;
+        }
+        // 创建输出流
+        self.outputStream = [NSOutputStream outputStreamToFileAtPath:_tmpPath append:YES];
+        // 开启输出流
+        [self.outputStream open];
+        // 修改为正在下载状态
+        self.state = SFDownloadHelperStateDownloading;
+        // 允许下载
+        completionHandler(NSURLSessionResponseAllow);
+
     }
-    if (_tmpSize == _totalSize)
+    else
     {
-        // 移动临时文件到 cache 目录
-        [SFFileHelper sf_moveItemFromPath:_tmpPath toPath:_cachesPath];
-      completionHandler(NSURLSessionResponseCancel);
-        NSLog(@"下载完成");
-        return;
-    }
-    if (_tmpSize > _totalSize)
-    {
+        // 取消
         completionHandler(NSURLSessionResponseCancel);
-        NSLog(@"临时文件错误,重新下载");
-        // 移除原有临时文件
-        [SFFileHelper sf_removeItemAtPath:_tmpPath];
-        // 重新开始下载
-        [self downloadWithURL:response.URL];
-        return;
     }
-    self.outputStream = [NSOutputStream outputStreamToFileAtPath:_tmpPath append:YES];
-    [self.outputStream open];
-    
-    completionHandler(NSURLSessionResponseAllow);
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
 {
+    // 写入数据
     [self.outputStream write:data.bytes maxLength:data.length];
+    NSLog(@"正在写入数据");
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
     NSLog(@"任务完成%@",error);
-    if (!error) {
-        
+    if (!error)
+    {
+        // FIXME: - 需要验证文件完整性 MD5
+        [SFFileHelper sf_moveItemFromPath:_tmpPath toPath:_cachesPath];
+        self.state = SFDownloadHelperStateSuccess;
     }
     else
     {
+        
+        if (error.code == -999)
+        {
+            // 用户取消
+            self.state = SFDownloadHelperStateCancle;
+        }
+        else
+        {
+            self.state = SFDownloadHelperStateFaile;
+        }
         NSLog(@"下载失败%@",error);
     }
 }
 
+#pragma mark -
+#pragma mark - ===== getter =====
 - (NSURLSession *)session
 {
     if (!_session)
