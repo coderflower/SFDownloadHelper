@@ -7,7 +7,7 @@
 //
 
 #import "SFDownloader.h"
-
+#import "NSString+SFMD5.h"
 #import "SFFileHelper.h"
 
 #define SFCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
@@ -186,7 +186,12 @@
     if (!error)
     {
         // FIXME: - 需要验证文件完整性 MD5
+        
+        
         [SFFileHelper sf_moveItemFromPath:_tmpPath toPath:_cachesPath];
+        NSString * fileMd5 = [_cachesPath sf_fileMD5];
+        
+        NSLog(@"%@",fileMd5);
         self.state = SFDownloadStateSuccess;
         if (self.completeHandel)
         {

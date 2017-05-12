@@ -60,6 +60,11 @@ typedef void(^SFDownloadCompletion)(NSString * _Nullable filePath, NSError * _Nu
 - (void)pasueCurrentTask;
 
 /**
+ 恢复当前任务
+ */
+- (void)resumeCurrentTask;
+
+/**
  取消当前任务
  */
 - (void)cancleCurrentTask;
