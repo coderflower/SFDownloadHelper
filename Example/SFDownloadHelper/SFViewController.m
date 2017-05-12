@@ -9,7 +9,7 @@
 #import "SFViewController.h"
 #import "SFFileHelper.h"
 #import "SFDownloadHelper.h"
-@interface SFViewController ()
+@interface SFViewController ()<SFDownloadHelperDelegate>
 @property (nonatomic, strong) SFDownloadHelper * helper;
 @property (nonatomic, strong) NSURL * url ;
 @property (nonatomic, weak) NSTimer * timer;
@@ -38,6 +38,7 @@
     _helper = [SFDownloadHelper new];
     _url = [NSURL URLWithString:@"http://downmobile.kugou.com/upload/ios_beta/kugou.ipa"];
     
+    _helper.delegate = self;
 }
 
 - (void)updateTimer
@@ -51,7 +52,21 @@
     
 }
 - (IBAction)start:(id)sender {
-    [self.helper downloadWithURL:self.url];
+    
+    
+    [self.helper downloadWithURL:self.url info:^(long long totalSzie) {
+        NSLog(@"%lld",totalSzie);
+    } completeHandle:^(NSString * _Nullable filePath, NSError * _Nullable error) {
+        if (!error)
+        {
+            NSLog(@"---> 成功 %@",filePath);
+        }
+        else
+        {
+            NSLog(@"--->失败 %@",error);
+        }
+    }];
+    
     
 }
 - (IBAction)pasue:(id)sender {
@@ -69,5 +84,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)downloadHelper:(SFDownloadHelper *)helper didChangeState:(SFDownloadHelperState)state
+{
+    NSLog(@"%zd",state);
+}
 
+
+- (void)downloadHelper:(SFDownloadHelper *)helper didChangeProgress:(CGFloat)progress
+{
+    NSLog(@"%f",progress);
+}
 @end

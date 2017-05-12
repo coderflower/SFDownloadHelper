@@ -24,12 +24,21 @@
 @property (nonatomic, weak) NSURLSessionDataTask * task;
 @end
 @implementation SFDownloadHelper
+- (void)downloadWithURL:(NSURL *)url info:(SFDownloadFileInfo)info completeHandle:(SFDownloadCompletion)completeHandle
+{
+    self.fileInfo = info;
+    self.completeHandel = completeHandle;
+    [self downloadWithURL:url];
+}
 - (void)downloadWithURL:(NSURL *)url
 {
     if ([url isEqual:self.task.currentRequest.URL])
     {
-        [self resumeCurrentTask];
-        return;
+        if (self.state == SFDownloadHelperStatePasue || self.state == SFDownloadHelperStateCancle)
+        {
+            [self resumeCurrentTask];
+            return;
+        }
     }
     // 获取文件名
     NSString * fileName = url.lastPathComponent;
@@ -56,12 +65,15 @@
         [self downloadWithURL:url offset:0];
     }
 }
+
+
 - (void)pasueCurrentTask
 {
     if (self.state == SFDownloadHelperStateDownloading )
     {
-        [self.task suspend];
         self.state = SFDownloadHelperStatePasue;
+       
+        [self.task suspend];
     }
 }
 - (void)resumeCurrentTask
@@ -115,6 +127,12 @@
             // 获取真实文件大小
             _totalSize = [totalSize longLongValue];
         }
+        
+        if (self.fileInfo)
+        {
+            self.fileInfo(_totalSize);
+        }
+        
         if (_tmpSize == _totalSize)
         {
             // 移动临时文件到 cache 目录
@@ -155,22 +173,32 @@
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
 {
+    // 计算进度
+    _tmpSize += data.length;
+    
+    self.progress = 1.0 * _tmpSize / _totalSize;
     // 写入数据
     [self.outputStream write:data.bytes maxLength:data.length];
-    NSLog(@"正在写入数据");
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
-    NSLog(@"任务完成%@",error);
     if (!error)
     {
         // FIXME: - 需要验证文件完整性 MD5
         [SFFileHelper sf_moveItemFromPath:_tmpPath toPath:_cachesPath];
         self.state = SFDownloadHelperStateSuccess;
+        if (self.completeHandel)
+        {
+            self.completeHandel(_cachesPath, nil);
+        }
     }
     else
     {
+        if (self.completeHandel)
+        {
+            self.completeHandel(nil, error);
+        }
         
         if (error.code == -999)
         {
@@ -179,9 +207,8 @@
         }
         else
         {
-            self.state = SFDownloadHelperStateFaile;
+            self.state = SFDownloadHelperStateFailed;
         }
-        NSLog(@"下载失败%@",error);
     }
 }
 
@@ -198,6 +225,28 @@
 }
 
 
-
+- (void)setState:(SFDownloadHelperState)state
+{
+    if (_state == state) {
+        return;
+    }
+    _state = state;
+    
+    // 通知代理更新状态
+    if (_delegate && [_delegate respondsToSelector:@selector(downloadHelper:didChangeState:)])
+    {
+        [_delegate downloadHelper:self didChangeState:state];
+    }
+    
+}
+- (void)setProgress:(CGFloat)progress
+{
+    _progress = progress;
+    // 通知代理更新进度
+    if (_delegate && [_delegate respondsToSelector:@selector(downloadHelper:didChangeProgress:)])
+    {
+        [_delegate downloadHelper:self didChangeProgress:progress];
+    }
+}
 
 @end
