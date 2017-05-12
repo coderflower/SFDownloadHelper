@@ -1,18 +1,18 @@
 //
-//  SFDownloadHelper.m
+//  SFDownloader.m
 //  Pods
 //
 //  Created by 花菜 on 2017/5/9.
 //
 //
 
-#import "SFDownloadHelper.h"
+#import "SFDownloader.h"
 
 #import "SFFileHelper.h"
 
 #define SFCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 #define SFTempPath NSTemporaryDirectory()
-@interface SFDownloadHelper ()<NSURLSessionDataDelegate>
+@interface SFDownloader ()<NSURLSessionDataDelegate>
 {
     NSString * _tmpPath;
     NSString * _cachesPath;
@@ -23,7 +23,7 @@
 @property (nonatomic, strong) NSOutputStream * outputStream;
 @property (nonatomic, weak) NSURLSessionDataTask * task;
 @end
-@implementation SFDownloadHelper
+@implementation SFDownloader
 - (void)downloadWithURL:(NSURL *)url info:(SFDownloadFileInfo)info completeHandle:(SFDownloadCompletion)completeHandle
 {
     self.fileInfo = info;
@@ -34,7 +34,7 @@
 {
     if ([url isEqual:self.task.currentRequest.URL])
     {
-        if (self.state == SFDownloadHelperStatePasue || self.state == SFDownloadHelperStateCancle)
+        if (self.state == SFDownloadStatePasue || self.state == SSFDownloadStateCancle)
         {
             [self resumeCurrentTask];
             return;
@@ -47,7 +47,7 @@
     if ([SFFileHelper sf_flieExistsAtPath:_cachesPath])
     {
         NSLog(@"文件下载完成");
-        self.state = SFDownloadHelperStateSuccess;
+        self.state = SFDownloadStatePasue;
         return;
     }
     // 判断是否曾经下载过
@@ -69,24 +69,24 @@
 
 - (void)pasueCurrentTask
 {
-    if (self.state == SFDownloadHelperStateDownloading )
+    if (self.state == SFDownloadStateDownloading )
     {
-        self.state = SFDownloadHelperStatePasue;
+        self.state = SFDownloadStatePasue;
        
         [self.task suspend];
     }
 }
 - (void)resumeCurrentTask
 {
-    if (self.task && (self.state == SFDownloadHelperStatePasue || self.state == SFDownloadHelperStateCancle))
+    if (self.task && (self.state == SFDownloadStatePasue || self.state == SSFDownloadStateCancle))
     {
         [self.task resume];
-        self.state = SFDownloadHelperStateDownloading;
+        self.state = SFDownloadStateDownloading;
     }
 }
 - (void)cancleCurrentTask
 {
-    self.state = SFDownloadHelperStateCancle;
+    self.state = SFDownloadStatePasue;
     [self.session invalidateAndCancel];
     self.session = nil;
 }
@@ -140,7 +140,7 @@
             // 取消本次任务
             completionHandler(NSURLSessionResponseCancel);
             // 修改为下载完成状态
-            self.state = SFDownloadHelperStateSuccess;
+            self.state = SFDownloadStateSuccess;
             return;
         }
         if (_tmpSize > _totalSize)
@@ -159,7 +159,7 @@
         // 开启输出流
         [self.outputStream open];
         // 修改为正在下载状态
-        self.state = SFDownloadHelperStateDownloading;
+        self.state = SFDownloadStateDownloading;
         // 允许下载
         completionHandler(NSURLSessionResponseAllow);
 
@@ -187,7 +187,7 @@
     {
         // FIXME: - 需要验证文件完整性 MD5
         [SFFileHelper sf_moveItemFromPath:_tmpPath toPath:_cachesPath];
-        self.state = SFDownloadHelperStateSuccess;
+        self.state = SFDownloadStateSuccess;
         if (self.completeHandel)
         {
             self.completeHandel(_cachesPath, nil);
@@ -203,11 +203,11 @@
         if (error.code == -999)
         {
             // 用户取消
-            self.state = SFDownloadHelperStateCancle;
+            self.state = SSFDownloadStateCancle;
         }
         else
         {
-            self.state = SFDownloadHelperStateFailed;
+            self.state = SFDownloadStateFailed;
         }
     }
 }
@@ -225,7 +225,7 @@
 }
 
 
-- (void)setState:(SFDownloadHelperState)state
+- (void)setState:(SFDownloadState)state
 {
     if (_state == state) {
         return;

@@ -8,36 +8,36 @@
 
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
-typedef NS_ENUM(NSUInteger, SFDownloadHelperState) {
+typedef NS_ENUM(NSUInteger, SFDownloadState) {
     /** 暂停 */
-    SFDownloadHelperStatePasue,
+    SFDownloadStatePasue,
     /** 下载中 */
-    SFDownloadHelperStateDownloading,
+    SFDownloadStateDownloading,
     /** 成功 */
-    SFDownloadHelperStateSuccess,
+    SFDownloadStateSuccess,
     /** 失败 */
-    SFDownloadHelperStateFailed,
+    SFDownloadStateFailed,
     /** 取消 */
-    SFDownloadHelperStateCancle
+    SSFDownloadStateCancle
 };
 
 
 typedef void(^SFDownloadFileInfo)(long long totalSzie);
 
 typedef void(^SFDownloadCompletion)(NSString * _Nullable filePath, NSError * _Nullable  error);
-@class SFDownloadHelper;
-@protocol SFDownloadHelperDelegate <NSObject>
+@class SFDownloader;
+@protocol SFDownloaderDelegate <NSObject>
 /// 回调下载状态
-- (void)downloadHelper:(SFDownloadHelper *)helper didChangeState:(SFDownloadHelperState)state;
+- (void)downloadHelper:(SFDownloader *)helper didChangeState:(SFDownloadState)state;
 /// 回调下载进度
-- (void)downloadHelper:(SFDownloadHelper *)helper didChangeProgress:(CGFloat)progress;
+- (void)downloadHelper:(SFDownloader *)helper didChangeProgress:(CGFloat)progress;
 @end
 
 
 
 
 
-@interface SFDownloadHelper : NSObject
+@interface SFDownloader : NSObject
 
 /**
  根据一个 url 连接执行下载任务
@@ -73,11 +73,11 @@ typedef void(^SFDownloadCompletion)(NSString * _Nullable filePath, NSError * _Nu
 #pragma mark -
 #pragma mark - ===== 属性 =====
 /// 下载状态
-@property (nonatomic, assign,readonly) SFDownloadHelperState state;
+@property (nonatomic, assign,readonly) SFDownloadState state;
 /// 下载进度
 @property (nonatomic, assign,readonly) CGFloat progress;
 /// 代理回调下载进度,下载状态等
-@property (nonatomic, weak) id<SFDownloadHelperDelegate> delegate;
+@property (nonatomic, weak) id<SFDownloaderDelegate> delegate;
 /// 任务完成路径,无论成功或失败
 @property (nonatomic, copy) SFDownloadCompletion completeHandel;
 /// 获取文件总大小

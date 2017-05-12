@@ -24,7 +24,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		B83123311EC20BF9001092A2 /* SFDownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B831232D1EC20BF9001092A2 /* SFDownloadHelper.m */; };
+		B83123311EC20BF9001092A2 /* SFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B831232D1EC20BF9001092A2 /* SFDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +67,8 @@
 		973BEE7D7AD3F74055A9BDCB /* Pods-SFDownloadHelper_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFDownloadHelper_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SFDownloadHelper_Tests/Pods-SFDownloadHelper_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB9378605C083CB531CAA2E7 /* Pods-SFDownloadHelper_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFDownloadHelper_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SFDownloadHelper_Example/Pods-SFDownloadHelper_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AF6EC18BF5816BA39A3D8B51 /* Pods_SFDownloadHelper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFDownloadHelper_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B831232C1EC20BF9001092A2 /* SFDownloadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDownloadHelper.h; sourceTree = "<group>"; };
-		B831232D1EC20BF9001092A2 /* SFDownloadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDownloadHelper.m; sourceTree = "<group>"; };
+		B831232C1EC20BF9001092A2 /* SFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDownloader.h; sourceTree = "<group>"; };
+		B831232D1EC20BF9001092A2 /* SFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDownloader.m; sourceTree = "<group>"; };
 		ED4F1A31C70CD17173CC0EF6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,8 +203,8 @@
 		B831232A1EC20BF9001092A2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B831232C1EC20BF9001092A2 /* SFDownloadHelper.h */,
-				B831232D1EC20BF9001092A2 /* SFDownloadHelper.m */,
+				B831232C1EC20BF9001092A2 /* SFDownloader.h */,
+				B831232D1EC20BF9001092A2 /* SFDownloader.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -409,7 +409,7 @@
 			files = (
 				6003F59E195388D20070C39A /* SFAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SFViewController.m in Sources */,
-				B83123311EC20BF9001092A2 /* SFDownloadHelper.m in Sources */,
+				B83123311EC20BF9001092A2 /* SFDownloader.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
